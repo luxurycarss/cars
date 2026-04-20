@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Mercedes & Audi | Premium Car Purchase</title>
-  <!-- Google Fonts + Tailwind + Font Awesome -->
+  <!-- Tailwind CSS + Google Fonts + Font Awesome -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- AOS animation library (optional but adds flair) -->
+  <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * {
@@ -37,7 +37,6 @@
       text-decoration: underline;
       color: #eab308;
     }
-    /* mobile friendly fixes */
     @media (max-width: 640px) {
       .container {
         padding-left: 1rem;
@@ -56,8 +55,8 @@
         <span class="text-2xl font-bold tracking-tight">Audi<span class="text-yellow-400">·</span>Mercedes</span>
       </div>
       <div class="flex gap-6 text-sm font-medium">
-        <a href="#cars" class="hover:text-yellow-400 transition">Models</a>
         <a href="#purchase" class="hover:text-yellow-400 transition">Purchase</a>
+        <a href="#cars" class="hover:text-yellow-400 transition">Models</a>
         <a href="#faq" class="hover:text-yellow-400 transition">FAQ</a>
       </div>
     </div>
@@ -79,7 +78,82 @@
     </div>
   </header>
 
-  <!-- Cars Showcase (Mercedes + Audi images) -->
+  <!-- PURCHASE FORM SECTION (Placed BEFORE Iconic Models) -->
+  <section id="purchase" class="py-16 bg-gradient-to-br from-gray-100 to-gray-200">
+    <div class="container mx-auto px-5 max-w-4xl">
+      <div data-aos="fade-up" class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div class="bg-black text-white py-6 px-8">
+          <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-2"><i class="fas fa-file-signature"></i> Reserve Your Mercedes or Audi</h2>
+          <p class="text-gray-300 text-sm mt-1">Fill the form and we’ll contact you with best offers.</p>
+        </div>
+        <div class="p-6 md:p-8">
+          <!-- Web3Forms action (using test access key, replaceable) -->
+          <form id="carPurchaseForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+            <!-- Web3Forms Access Key (demo key, you can replace with your own from web3forms.com) -->
+            <input type="hidden" name="access_key" value="b7c0d2e4-5f6a-4b2c-9a3d-1e8f7c6b5a4d">
+            <input type="hidden" name="subject" value="New Car Inquiry - Mercedes/Audi">
+            <input type="hidden" name="from_name" value="Luxury Auto Landing Page">
+            <input type="hidden" name="redirect" value="https://yourwebsite.com/thankyou">
+            
+            <!-- CAR CONDITION FIELD AT THE TOP (New or Second Hand) - Moved to top -->
+            <div class="bg-yellow-50 p-5 rounded-2xl border border-yellow-200">
+              <label class="block text-gray-800 font-bold text-lg mb-3">🚘 Car Condition *</label>
+              <div class="flex flex-wrap gap-6">
+                <label class="flex items-center gap-3 cursor-pointer bg-white px-4 py-2 rounded-full shadow-sm border">
+                  <input type="radio" name="car_condition" value="New Car" required class="w-5 h-5 accent-yellow-500"> 
+                  <span class="text-gray-800 font-medium">✨ Brand New Car</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer bg-white px-4 py-2 rounded-full shadow-sm border">
+                  <input type="radio" name="car_condition" value="Second Hand Car" required class="w-5 h-5 accent-yellow-500"> 
+                  <span class="text-gray-800 font-medium">🔧 Second Hand / Pre-owned</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Dynamic extra field: appears when "Second Hand Car" is selected -->
+            <div id="extraConditionField" class="hidden transition-all duration-300">
+              <label class="block text-gray-700 font-semibold mb-1">📋 Additional details (mileage / year preference)</label>
+              <textarea name="preowned_notes" rows="2" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400" placeholder="If second hand, let us know your preferred mileage range, model year, or any specific requests..."></textarea>
+            </div>
+
+            <!-- 2 columns grid for personal info (removed preferred brand & budget) -->
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Full Name *</label>
+                <input type="text" name="name" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400 focus:outline-none" placeholder="John Carter">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Email Address *</label>
+                <input type="email" name="email" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400" placeholder="hello@example.com">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Phone *</label>
+                <input type="tel" name="phone" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400" placeholder="+1 234 567 8900">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Preferred Model (optional)</label>
+                <input type="text" name="model" class="w-full border border-gray-300 rounded-xl px-4 py-3" placeholder="e.g., C-Class, Q5, EQS, e-tron GT">
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-gray-700 font-semibold mb-1">Message / Requests</label>
+              <textarea name="message" rows="3" class="w-full border border-gray-300 rounded-xl px-4 py-3" placeholder="Tell us about your dream car configuration, color, or any special requirements..."></textarea>
+            </div>
+            
+            <!-- honeypot spam protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            
+            <button type="submit" class="w-full bg-black hover:bg-gray-900 text-white font-bold py-4 rounded-xl transition-all text-lg shadow-lg flex items-center justify-center gap-2 btn-primary"><i class="fas fa-paper-plane"></i> Submit Inquiry →</button>
+            <p class="text-xs text-center text-gray-400 mt-3">We respect your privacy. Your data is secure via Web3Forms.</p>
+          </form>
+          <div id="formStatusMessage" class="mt-4 text-center font-medium hidden"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cars Showcase (Iconic Models section - Mercedes + Audi images) -->
   <section id="cars" class="py-16 bg-white">
     <div class="container mx-auto px-5">
       <div class="text-center mb-12" data-aos="fade-up">
@@ -154,102 +228,6 @@
               <p class="mt-2 text-gray-600">Sleek lines, virtual cockpit, hybrid options.</p>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Purchase Form Section with Web3Forms + dynamic "New or Second Hand" -->
-  <section id="purchase" class="py-16 bg-gradient-to-br from-gray-100 to-gray-200">
-    <div class="container mx-auto px-5 max-w-4xl">
-      <div data-aos="fade-up" class="bg-white rounded-3xl shadow-2xl overflow-hidden">
-        <div class="bg-black text-white py-6 px-8">
-          <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-2"><i class="fas fa-file-signature"></i> Reserve Your Mercedes or Audi</h2>
-          <p class="text-gray-300 text-sm mt-1">Fill the form and we’ll contact you with best offers.</p>
-        </div>
-        <div class="p-6 md:p-8">
-          <!-- Web3Forms action (using test access key, you can replace with yours) -->
-          <form id="carPurchaseForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-            <!-- Web3Forms Access Key (replace with your own key from web3forms.com, but this demo key is public placeholder) -->
-            <input type="hidden" name="access_key" value="b7c0d2e4-5f6a-4b2c-9a3d-1e8f7c6b5a4d">
-            <input type="hidden" name="subject" value="New Car Inquiry - Mercedes/Audi">
-            <input type="hidden" name="from_name" value="Luxury Auto Landing Page">
-            <!-- Optional: redirect after success -->
-            <input type="hidden" name="redirect" value="https://yourwebsite.com/thankyou">
-            
-            <!-- 2 columns grid on medium+ -->
-            <div class="grid md:grid-cols-2 gap-5">
-              <div>
-                <label class="block text-gray-700 font-semibold mb-1">Full Name *</label>
-                <input type="text" name="name" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400 focus:outline-none" placeholder="John Carter">
-              </div>
-              <div>
-                <label class="block text-gray-700 font-semibold mb-1">Email Address *</label>
-                <input type="email" name="email" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400" placeholder="hello@example.com">
-              </div>
-              <div>
-                <label class="block text-gray-700 font-semibold mb-1">Phone *</label>
-                <input type="tel" name="phone" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400" placeholder="+1 234 567 8900">
-              </div>
-              <div>
-                <label class="block text-gray-700 font-semibold mb-1">Preferred Brand *</label>
-                <select name="brand" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400 bg-white">
-                  <option value="Mercedes-Benz">Mercedes-Benz</option>
-                  <option value="Audi">Audi</option>
-                </select>
-              </div>
-            </div>
-            
-            <!-- NEW OR SECOND HAND (dynamic field) -->
-            <div>
-              <label class="block text-gray-700 font-semibold mb-1">Car Condition *</label>
-              <div class="flex flex-wrap gap-5 mt-1">
-                <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="radio" name="car_condition" value="New Car" required class="w-5 h-5 accent-yellow-500"> 
-                  <span class="text-gray-800">🚗 Brand New Car</span>
-                </label>
-                <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="radio" name="car_condition" value="Second Hand Car" required class="w-5 h-5 accent-yellow-500"> 
-                  <span class="text-gray-800">🔧 Second Hand / Pre-owned</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Dynamic extra field: appear based on condition selection (optional) -->
-            <div id="extraConditionField" class="hidden transition-all duration-300">
-              <label class="block text-gray-700 font-semibold mb-1">Additional details (mileage / year preference)</label>
-              <textarea name="preowned_notes" rows="2" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400" placeholder="If second hand, let us know your preferred mileage range or model year..."></textarea>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-5">
-              <div>
-                <label class="block text-gray-700 font-semibold mb-1">Preferred Model (optional)</label>
-                <input type="text" name="model" class="w-full border border-gray-300 rounded-xl px-4 py-3" placeholder="e.g., C-Class, Q5, EQS">
-              </div>
-              <div>
-                <label class="block text-gray-700 font-semibold mb-1">Budget (USD)</label>
-                <select name="budget" class="w-full border border-gray-300 rounded-xl px-4 py-3 bg-white">
-                  <option value="">Select range</option>
-                  <option>$30k - $50k</option>
-                  <option>$50k - $80k</option>
-                  <option>$80k - $120k</option>
-                  <option>$120k+</option>
-                </select>
-              </div>
-            </div>
-            
-            <div>
-              <label class="block text-gray-700 font-semibold mb-1">Message / Requests</label>
-              <textarea name="message" rows="3" class="w-full border border-gray-300 rounded-xl px-4 py-3" placeholder="Tell us about your dream car configuration..."></textarea>
-            </div>
-            
-            <!-- honeypot spam protection -->
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-            
-            <button type="submit" class="w-full bg-black hover:bg-gray-900 text-white font-bold py-4 rounded-xl transition-all text-lg shadow-lg flex items-center justify-center gap-2 btn-primary"><i class="fas fa-paper-plane"></i> Submit Inquiry →</button>
-            <p class="text-xs text-center text-gray-400 mt-3">We respect your privacy. Your data is secure via Web3Forms.</p>
-          </form>
-          <div id="formStatusMessage" class="mt-4 text-center font-medium hidden"></div>
         </div>
       </div>
     </div>
@@ -353,14 +331,13 @@
   <script>
     AOS.init({ duration: 800, once: true, offset: 30 });
     
-    // Dynamic FAQ accordion
+    // FAQ accordion functionality
     const faqButtons = document.querySelectorAll('.faq-question');
     faqButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         const answer = btn.nextElementSibling;
         const icon = btn.querySelector('i');
         answer.classList.toggle('hidden');
-        icon.classList.toggle('rotate-180');
         if (!answer.classList.contains('hidden')) {
           icon.style.transform = 'rotate(180deg)';
         } else {
@@ -383,18 +360,17 @@
     conditionRadios.forEach(radio => radio.addEventListener('change', toggleExtraField));
     toggleExtraField(); // initial state
     
-    // Web3Forms submission with custom status feedback (since redirect might interfere but we handle with fetch to avoid full page reload and show success message)
+    // Web3Forms submission with fetch to show status messages
     const form = document.getElementById('carPurchaseForm');
     const statusMsgDiv = document.getElementById('formStatusMessage');
     
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const formData = new FormData(form);
-      // Add required hidden fields if missing from HTML already present
-      // Web3Forms expects POST request, we can use fetch to show inline feedback.
       statusMsgDiv.classList.remove('hidden');
       statusMsgDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending your request...';
       statusMsgDiv.classList.add('text-blue-600');
+      statusMsgDiv.classList.remove('text-green-600', 'text-red-600');
       try {
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -403,10 +379,10 @@
         const result = await response.json();
         if (result.success) {
           statusMsgDiv.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Thank you! Our luxury specialist will reach out shortly.';
-          statusMsgDiv.classList.remove('text-blue-600', 'text-red-600');
+          statusMsgDiv.classList.remove('text-blue-600');
           statusMsgDiv.classList.add('text-green-600');
           form.reset();
-          // reset extra field visibility
+          // reset extra field visibility after reset
           toggleExtraField();
           setTimeout(() => {
             statusMsgDiv.classList.add('hidden');
@@ -424,9 +400,9 @@
       }
     });
     
-    // style for icon rotate
+    // style for icon rotation
     const style = document.createElement('style');
-    style.textContent = `.rotate-180 { transform: rotate(180deg); transition: transform 0.2s; } .faq-question i { transition: transform 0.2s; }`;
+    style.textContent = `.faq-question i { transition: transform 0.2s; }`;
     document.head.appendChild(style);
   </script>
 </body>
