@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mercedes & Audi | Premium Car Purchase</title>
+  <!-- Google Fonts + Tailwind + Font Awesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS animation library (optional but adds flair) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f9fafb;
+    }
+    .car-card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .car-card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #0a0c10 0%, #1a1f2b 100%);
+    }
+    .btn-primary {
+      transition: all 0.2s ease;
+    }
+    .btn-primary:active {
+      transform: scale(0.97);
+    }
+    footer a:hover {
+      text-decoration: underline;
+      color: #eab308;
+    }
+    /* mobile friendly fixes */
+    @media (max-width: 640px) {
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Hero Section with Brand Identity -->
+  <header class="gradient-bg text-white">
+    <div class="container mx-auto px-5 py-6 md:py-8 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <i class="fab fa-mercedes text-3xl text-yellow-400"></i>
+        <span class="text-2xl font-bold tracking-tight">Audi<span class="text-yellow-400">·</span>Mercedes</span>
+      </div>
+      <div class="flex gap-6 text-sm font-medium">
+        <a href="#cars" class="hover:text-yellow-400 transition">Models</a>
+        <a href="#purchase" class="hover:text-yellow-400 transition">Purchase</a>
+        <a href="#faq" class="hover:text-yellow-400 transition">FAQ</a>
+      </div>
+    </div>
+    <div class="container mx-auto px-5 py-16 md:py-24 text-center md:text-left md:flex md:justify-between md:items-center">
+      <div data-aos="fade-right">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Drive <span class="text-yellow-400">Excellence</span><br>Mercedes & Audi</h1>
+        <p class="text-gray-300 text-lg mt-4 max-w-xl">Discover premium new & pre-owned vehicles. Engineered for passion, crafted for luxury.</p>
+        <div class="flex flex-wrap gap-4 mt-8 justify-center md:justify-start">
+          <a href="#purchase" class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-7 py-3 rounded-full shadow-lg transition flex items-center gap-2 btn-primary"><i class="fas fa-car"></i> Get Your Dream Car</a>
+          <a href="#cars" class="border border-white/40 hover:bg-white/10 px-7 py-3 rounded-full transition"><i class="fas fa-image"></i> Explore Gallery</a>
+        </div>
+      </div>
+      <div data-aos="fade-left" class="mt-10 md:mt-0">
+        <div class="flex gap-3 text-7xl md:text-8xl opacity-90">
+          <i class="fab fa-mercedes"></i>
+          <i class="fab fa-audible"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cars Showcase (Mercedes + Audi images) -->
+  <section id="cars" class="py-16 bg-white">
+    <div class="container mx-auto px-5">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Iconic <span class="border-b-4 border-yellow-400">Models</span></h2>
+        <p class="text-gray-500 mt-2">Explore the latest Mercedes-Benz and Audi lineup — new & certified pre-owned</p>
+      </div>
+
+      <!-- Mercedes Row -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center gap-3 mb-5">
+          <i class="fab fa-mercedes text-3xl text-gray-700"></i>
+          <h3 class="text-2xl font-bold text-gray-800">Mercedes-Benz Collection</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 mb-14">
+          <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md car-card-hover">
+            <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600&h=400&fit=crop" alt="Mercedes EQS" class="w-full h-56 object-cover">
+            <div class="p-5">
+              <div class="flex justify-between items-start">
+                <div><h4 class="text-xl font-bold">EQS 580</h4><p class="text-gray-500 text-sm">Electric Luxury</p></div>
+                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">New</span>
+              </div>
+              <p class="mt-2 text-gray-600">Fully electric, hyper screen, ultimate comfort.</p>
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md car-card-hover">
+            <img src="https://images.unsplash.com/photo-1616422285623-13ff017219eb?w=600&h=400&fit=crop" alt="Mercedes C-Class" class="w-full h-56 object-cover">
+            <div class="p-5">
+              <div class="flex justify-between"><h4 class="text-xl font-bold">C-Class</h4><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Pre-owned</span></div>
+              <p class="text-gray-500 text-sm">Executive Sedan</p>
+              <p class="mt-2 text-gray-600">Dynamic design, advanced tech, sporty elegance.</p>
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md car-card-hover">
+            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7c?w=600&h=400&fit=crop" alt="Mercedes G-Class" class="w-full h-56 object-cover">
+            <div class="p-5">
+              <div class="flex justify-between"><h4 class="text-xl font-bold">G-Class</h4><span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">New</span></div>
+              <p class="text-gray-500 text-sm">Off-road Legend</p>
+              <p class="mt-2 text-gray-600">Iconic boxy shape, luxury and power.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audi Row -->
+      <div data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center gap-3 mb-5">
+          <i class="fab fa-audible text-3xl text-gray-700"></i>
+          <h3 class="text-2xl font-bold text-gray-800">Audi Collection</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md car-card-hover">
+            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&h=400&fit=crop" alt="Audi e-tron GT" class="w-full h-56 object-cover">
+            <div class="p-5">
+              <div class="flex justify-between"><h4 class="text-xl font-bold">e-tron GT</h4><span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">New</span></div>
+              <p class="text-gray-500 text-sm">Electric Performance</p>
+              <p class="mt-2 text-gray-600">Stunning design, 0-100 in 4.1s, futuristic interior.</p>
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md car-card-hover">
+            <img src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=600&h=400&fit=crop" alt="Audi Q5" class="w-full h-56 object-cover">
+            <div class="p-5">
+              <div class="flex justify-between"><h4 class="text-xl font-bold">Q5 SUV</h4><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Pre-owned</span></div>
+              <p class="text-gray-500 text-sm">Luxury SUV</p>
+              <p class="mt-2 text-gray-600">Spacious, Quattro drive, premium comfort.</p>
+            </div>
+          </div>
+          <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-md car-card-hover">
+            <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&h=400&fit=crop" alt="Audi A6" class="w-full h-56 object-cover">
+            <div class="p-5">
+              <div class="flex justify-between"><h4 class="text-xl font-bold">A6 Avant</h4><span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">New</span></div>
+              <p class="text-gray-500 text-sm">Estate / Wagon</p>
+              <p class="mt-2 text-gray-600">Sleek lines, virtual cockpit, hybrid options.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Purchase Form Section with Web3Forms + dynamic "New or Second Hand" -->
+  <section id="purchase" class="py-16 bg-gradient-to-br from-gray-100 to-gray-200">
+    <div class="container mx-auto px-5 max-w-4xl">
+      <div data-aos="fade-up" class="bg-white rounded-3xl shadow-2xl overflow-hidden">
+        <div class="bg-black text-white py-6 px-8">
+          <h2 class="text-2xl md:text-3xl font-bold flex items-center gap-2"><i class="fas fa-file-signature"></i> Reserve Your Mercedes or Audi</h2>
+          <p class="text-gray-300 text-sm mt-1">Fill the form and we’ll contact you with best offers.</p>
+        </div>
+        <div class="p-6 md:p-8">
+          <!-- Web3Forms action (using test access key, you can replace with yours) -->
+          <form id="carPurchaseForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+            <!-- Web3Forms Access Key (replace with your own key from web3forms.com, but this demo key is public placeholder) -->
+            <input type="hidden" name="access_key" value="b7c0d2e4-5f6a-4b2c-9a3d-1e8f7c6b5a4d">
+            <input type="hidden" name="subject" value="New Car Inquiry - Mercedes/Audi">
+            <input type="hidden" name="from_name" value="Luxury Auto Landing Page">
+            <!-- Optional: redirect after success -->
+            <input type="hidden" name="redirect" value="https://yourwebsite.com/thankyou">
+            
+            <!-- 2 columns grid on medium+ -->
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Full Name *</label>
+                <input type="text" name="name" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400 focus:outline-none" placeholder="John Carter">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Email Address *</label>
+                <input type="email" name="email" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400" placeholder="hello@example.com">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Phone *</label>
+                <input type="tel" name="phone" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400" placeholder="+1 234 567 8900">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Preferred Brand *</label>
+                <select name="brand" required class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400 bg-white">
+                  <option value="Mercedes-Benz">Mercedes-Benz</option>
+                  <option value="Audi">Audi</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- NEW OR SECOND HAND (dynamic field) -->
+            <div>
+              <label class="block text-gray-700 font-semibold mb-1">Car Condition *</label>
+              <div class="flex flex-wrap gap-5 mt-1">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="car_condition" value="New Car" required class="w-5 h-5 accent-yellow-500"> 
+                  <span class="text-gray-800">🚗 Brand New Car</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="car_condition" value="Second Hand Car" required class="w-5 h-5 accent-yellow-500"> 
+                  <span class="text-gray-800">🔧 Second Hand / Pre-owned</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Dynamic extra field: appear based on condition selection (optional) -->
+            <div id="extraConditionField" class="hidden transition-all duration-300">
+              <label class="block text-gray-700 font-semibold mb-1">Additional details (mileage / year preference)</label>
+              <textarea name="preowned_notes" rows="2" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-yellow-400" placeholder="If second hand, let us know your preferred mileage range or model year..."></textarea>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Preferred Model (optional)</label>
+                <input type="text" name="model" class="w-full border border-gray-300 rounded-xl px-4 py-3" placeholder="e.g., C-Class, Q5, EQS">
+              </div>
+              <div>
+                <label class="block text-gray-700 font-semibold mb-1">Budget (USD)</label>
+                <select name="budget" class="w-full border border-gray-300 rounded-xl px-4 py-3 bg-white">
+                  <option value="">Select range</option>
+                  <option>$30k - $50k</option>
+                  <option>$50k - $80k</option>
+                  <option>$80k - $120k</option>
+                  <option>$120k+</option>
+                </select>
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-gray-700 font-semibold mb-1">Message / Requests</label>
+              <textarea name="message" rows="3" class="w-full border border-gray-300 rounded-xl px-4 py-3" placeholder="Tell us about your dream car configuration..."></textarea>
+            </div>
+            
+            <!-- honeypot spam protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            
+            <button type="submit" class="w-full bg-black hover:bg-gray-900 text-white font-bold py-4 rounded-xl transition-all text-lg shadow-lg flex items-center justify-center gap-2 btn-primary"><i class="fas fa-paper-plane"></i> Submit Inquiry →</button>
+            <p class="text-xs text-center text-gray-400 mt-3">We respect your privacy. Your data is secure via Web3Forms.</p>
+          </form>
+          <div id="formStatusMessage" class="mt-4 text-center font-medium hidden"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section with attractive accordion style -->
+  <section id="faq" class="py-16 bg-white">
+    <div class="container mx-auto px-5 max-w-3xl">
+      <div data-aos="fade-up" class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Frequently Asked <span class="text-yellow-500">Questions</span></h2>
+        <p class="text-gray-500 mt-2">Everything you need to know before purchasing your Mercedes or Audi.</p>
+      </div>
+      <div class="space-y-4">
+        <div class="border border-gray-200 rounded-2xl overflow-hidden" data-aos="fade-up">
+          <button class="faq-question w-full text-left px-6 py-4 bg-gray-50 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition">
+            <span>Can I finance both new and second-hand cars?</span>
+            <i class="fas fa-chevron-down text-yellow-600"></i>
+          </button>
+          <div class="faq-answer px-6 pb-5 pt-0 text-gray-600 border-t border-gray-100 hidden">
+            Absolutely! We offer flexible financing options for both brand new Mercedes/Audi and certified pre-owned vehicles. Our partners provide competitive rates.
+          </div>
+        </div>
+        <div class="border border-gray-200 rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="50">
+          <button class="faq-question w-full text-left px-6 py-4 bg-gray-50 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition">
+            <span>Do you provide warranty for second-hand cars?</span>
+            <i class="fas fa-chevron-down text-yellow-600"></i>
+          </button>
+          <div class="faq-answer px-6 pb-5 pt-0 text-gray-600 border-t border-gray-100 hidden">
+            Yes, all pre-owned vehicles undergo a rigorous multi-point inspection and include a limited warranty (up to 2 years / 30k miles) plus roadside assistance.
+          </div>
+        </div>
+        <div class="border border-gray-200 rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <button class="faq-question w-full text-left px-6 py-4 bg-gray-50 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition">
+            <span>How long does delivery take?</span>
+            <i class="fas fa-chevron-down text-yellow-600"></i>
+          </button>
+          <div class="faq-answer px-6 pb-5 pt-0 text-gray-600 border-t border-gray-100 hidden">
+            New vehicles typically 2-4 weeks depending on customization. Second-hand cars can be delivered within 3-7 business days after paperwork completion.
+          </div>
+        </div>
+        <div class="border border-gray-200 rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+          <button class="faq-question w-full text-left px-6 py-4 bg-gray-50 font-semibold text-lg flex justify-between items-center hover:bg-gray-100 transition">
+            <span>Can I schedule a test drive?</span>
+            <i class="fas fa-chevron-down text-yellow-600"></i>
+          </button>
+          <div class="faq-answer px-6 pb-5 pt-0 text-gray-600 border-t border-gray-100 hidden">
+            Definitely! Fill the purchase form mentioning "Test drive" and we’ll arrange a contactless or in-person test drive at your nearest partner dealership.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER with About, Contact, Terms, Privacy -->
+  <footer class="bg-gray-900 text-gray-300 pt-14 pb-8">
+    <div class="container mx-auto px-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div>
+          <div class="flex items-center gap-2 text-white text-2xl font-bold mb-4"><i class="fab fa-mercedes"></i><span>Audi<span class="text-yellow-400">·</span>Mercedes</span></div>
+          <p class="text-sm">Premium automotive experience. Redefining luxury and performance since 2025.</p>
+          <div class="flex mt-4 space-x-4 text-xl">
+            <a href="#" class="hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-yellow-400"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-yellow-400"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-lg mb-3">About</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-yellow-400">Our Story</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Sustainability</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Press & Media</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Investor Relations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-lg mb-3">Contact</h4>
+          <ul class="space-y-2 text-sm">
+            <li><i class="fas fa-phone-alt w-5"></i> +1 (800) 234-5678</li>
+            <li><i class="fas fa-envelope w-5"></i> hello@luxuryautogroup.com</li>
+            <li><i class="fas fa-map-marker-alt w-5"></i> 123 Auto Blvd, Los Angeles, CA</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold text-lg mb-3">Legal</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-yellow-400">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Cookie Policy</a></li>
+            <li><a href="#" class="hover:text-yellow-400">GDPR Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+        &copy; 2026 Mercedes & Audi Premium Garage. All trademarks belong to their respective owners. Designed for enthusiasts.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 30 });
+    
+    // Dynamic FAQ accordion
+    const faqButtons = document.querySelectorAll('.faq-question');
+    faqButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const icon = btn.querySelector('i');
+        answer.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+        if (!answer.classList.contains('hidden')) {
+          icon.style.transform = 'rotate(180deg)';
+        } else {
+          icon.style.transform = 'rotate(0deg)';
+        }
+      });
+    });
+    
+    // Condition logic: show additional field when "Second Hand Car" is selected
+    const conditionRadios = document.querySelectorAll('input[name="car_condition"]');
+    const extraDiv = document.getElementById('extraConditionField');
+    function toggleExtraField() {
+      const selected = document.querySelector('input[name="car_condition"]:checked');
+      if (selected && selected.value === 'Second Hand Car') {
+        extraDiv.classList.remove('hidden');
+      } else {
+        extraDiv.classList.add('hidden');
+      }
+    }
+    conditionRadios.forEach(radio => radio.addEventListener('change', toggleExtraField));
+    toggleExtraField(); // initial state
+    
+    // Web3Forms submission with custom status feedback (since redirect might interfere but we handle with fetch to avoid full page reload and show success message)
+    const form = document.getElementById('carPurchaseForm');
+    const statusMsgDiv = document.getElementById('formStatusMessage');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      // Add required hidden fields if missing from HTML already present
+      // Web3Forms expects POST request, we can use fetch to show inline feedback.
+      statusMsgDiv.classList.remove('hidden');
+      statusMsgDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending your request...';
+      statusMsgDiv.classList.add('text-blue-600');
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const result = await response.json();
+        if (result.success) {
+          statusMsgDiv.innerHTML = '<i class="fas fa-check-circle"></i> ✅ Thank you! Our luxury specialist will reach out shortly.';
+          statusMsgDiv.classList.remove('text-blue-600', 'text-red-600');
+          statusMsgDiv.classList.add('text-green-600');
+          form.reset();
+          // reset extra field visibility
+          toggleExtraField();
+          setTimeout(() => {
+            statusMsgDiv.classList.add('hidden');
+          }, 5000);
+        } else {
+          throw new Error(result.message || 'Something went wrong');
+        }
+      } catch (error) {
+        statusMsgDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Oops! Submission failed. Please try again or email us directly.';
+        statusMsgDiv.classList.remove('text-blue-600');
+        statusMsgDiv.classList.add('text-red-600');
+        setTimeout(() => {
+          statusMsgDiv.classList.add('hidden');
+        }, 5000);
+      }
+    });
+    
+    // style for icon rotate
+    const style = document.createElement('style');
+    style.textContent = `.rotate-180 { transform: rotate(180deg); transition: transform 0.2s; } .faq-question i { transition: transform 0.2s; }`;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
